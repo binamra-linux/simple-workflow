@@ -1,5 +1,6 @@
 services:
   flaskapp:
+    image: flaskapp:latest
     build:
       context: .
       dockerfile: dockerfiles/python.dockerfile
