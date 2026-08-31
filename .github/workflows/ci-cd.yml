@@ -23,4 +23,4 @@ jobs:
             cd ..
         - name: run tests
           run: |
-            python tests/test_app.py
+            PYTHONPATH=src pytest tests/
