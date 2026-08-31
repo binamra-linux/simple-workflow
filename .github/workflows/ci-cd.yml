@@ -39,4 +39,12 @@ jobs:
       - name: build docker image
         run: |
           docker compose build flaskapp
+      - name: save docker image
+        run: |
+          docker save -o flaskapp.tar flaskapp:latest
+      - name: Upload Job Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: docker-image
+          path: flaskapp.tar
             
