@@ -1,0 +1,25 @@
+name: learning_action
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout code
+          uses: actions/checkout@v3
+        - name: setup python
+          uses: actions/setup-python@v4
+          with:
+            python-version: 3.11
+        - name: install dependencies
+          run: |
+            cd src && pip install -r requirements.txt
+            cd ..
+        - name: run tests
+          run: |
+            pytest tests/
